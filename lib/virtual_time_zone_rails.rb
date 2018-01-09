@@ -1,4 +1,4 @@
-require 'tzinfo/lib/tzinfo/virtual_timezone'
+require 'tzinfo/virtual_timezone'
 require 'active_support/values/time_zone'
 
 ActiveSupport::TimeZone.class_eval do
