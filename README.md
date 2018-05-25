@@ -47,6 +47,25 @@ Or install it yourself as:
 
 Just include to the Gemfile of your rails project.
 
+### NOTE!!
+This gem does not implicitly convert numeric hours to milliseconds like original ActiveSupport::TimeZone does.
+(ActiveRecord::TimeZone implicitly convert numeric from -13 to 13 to milliseconds by multiplying with 3600)
+
+If your code relies on this feature, please update by one of the following ways.
+
+Original code:
+```ruby
+ActiveSupport::TimeZone.new(9)
+```
+Updated code:
+```ruby
+ActiveSupport::TimeZone.new(9.hours)
+```
+or
+```ruby
+ActiveSupport::TimeZone.new(9 * 3600)
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
