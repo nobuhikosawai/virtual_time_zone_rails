@@ -48,7 +48,7 @@ Or install it yourself as:
 Just include to the Gemfile of your rails project.
 
 ### NOTE!!
-This gem does not implicitly convert numeric hours to milliseconds like original ActiveSupport::TimeZone does.
+This gem does not implicitly convert numeric hours to seconds like original ActiveSupport::TimeZone does.
 (ActiveRecord::TimeZone implicitly convert numeric from -13 to 13 to milliseconds by multiplying with 3600)
 
 If your code relies on this feature, please update by one of the following ways.
