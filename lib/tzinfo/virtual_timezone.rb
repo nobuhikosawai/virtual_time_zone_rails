@@ -6,14 +6,18 @@ module TZInfo
       vt
     end
 
+    def period_for(_time)
+      TimezonePeriod.new(@offset)
+    end
+
     # Returns the TimezonePeriod based on the given seconds from GMT.
     def period_for_utc(_utc)
-      TimezonePeriod.new(nil, nil, @offset)
+      TimezonePeriod.new(@offset)
     end
 
     # Returns the array of TimezonePeriod based on the given seconds from GMT.
     def periods_for_local(_local)
-      [TimezonePeriod.new(nil, nil, @offset)]
+      [TimezonePeriod.new(@offset)]
     end
 
     def identifier
@@ -24,7 +28,7 @@ module TZInfo
 
       def setup(seconds_from_gmt)
         @seconds_from_gmt = seconds_from_gmt
-        @offset = TimezoneOffset.new(@seconds_from_gmt, 0, :VirtualTimeZone)
+        @offset = TimezoneOffset.new(@seconds_from_gmt, 0, 'VirtualTimeZone')
       end
   end
 end
