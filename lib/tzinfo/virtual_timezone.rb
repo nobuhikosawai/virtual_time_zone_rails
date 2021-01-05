@@ -7,17 +7,17 @@ module TZInfo
     end
 
     def period_for(_time)
-      TimezonePeriod.new(@offset)
+      OffsetTimezonePeriod.new(@offset)
     end
 
     # Returns the TimezonePeriod based on the given seconds from GMT.
     def period_for_utc(_utc)
-      TimezonePeriod.new(@offset)
+      OffsetTimezonePeriod.new(@offset)
     end
 
     # Returns the array of TimezonePeriod based on the given seconds from GMT.
     def periods_for_local(_local)
-      [TimezonePeriod.new(@offset)]
+      [OffsetTimezonePeriod.new(@offset)]
     end
 
     def identifier
