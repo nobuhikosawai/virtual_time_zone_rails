@@ -20,7 +20,7 @@ class RealTimeZoneRailsTest < ActiveSupport::TestCase
 
   def test_period_for_local
     zone = ActiveSupport::TimeZone["Eastern Time (US & Canada)"]
-    assert_instance_of TZInfo::TimezonePeriod, zone.period_for_local(Time.utc(2000))
+    assert_instance_of TZInfo::TransitionsTimezonePeriod, zone.period_for_local(Time.utc(2000))
   end
 
   ActiveSupport::TimeZone::MAPPING.each_key do |name|

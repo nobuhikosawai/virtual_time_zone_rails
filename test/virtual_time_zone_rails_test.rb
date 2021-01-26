@@ -16,7 +16,7 @@ class VirtualTimeZoneRailsTest < ActiveSupport::TestCase
 
   def test_period_for_local
     zone = ActiveSupport::TimeZone[-18000]
-    assert_instance_of TZInfo::TimezonePeriod, zone.period_for_local(Time.utc(2000))
+    assert_instance_of TZInfo::OffsetTimezonePeriod, zone.period_for_local(Time.utc(2000))
   end
 
   def test_now
